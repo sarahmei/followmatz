@@ -1,0 +1,15 @@
+<h1>New rubyist</h1>
+
+<% form_for(@rubyist) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :twitter_name %><br />
+    <%= f.text_field :twitter_name %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', rubyists_path %>
