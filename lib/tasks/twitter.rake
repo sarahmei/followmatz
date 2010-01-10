@@ -1,4 +1,16 @@
 namespace :twitter do
+  desc "Adds a twitter user to the system"
+  task :add_user => :environment do
+    twitter_user = ENV['name']
+    if twitter_user.blank?
+      puts "USAGE: rake twitter:add_user name=sarahmei"
+    elsif Rubyist.find_by_twitter_name(twitter_user)
+      puts "Twitter user #{twitter_user} is already in the system."
+    elsif Rubyist.new(:twitter_name => twitter_user).save!
+      puts "Twitter user #{twitter_user} added to the system."
+    end
+  end
+
   desc "Retrieve new updates from the rubyists in the system"
   task :update => :environment do
     require 'rubygems'
