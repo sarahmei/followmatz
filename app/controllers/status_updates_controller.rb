@@ -1,25 +1,4 @@
 class StatusUpdatesController < ApplicationController
-  # GET /status_updates
-  # GET /status_updates.xml
-  def index
-    @status_updates = StatusUpdate.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @status_updates }
-    end
-  end
-
-  # GET /status_updates/1
-  # GET /status_updates/1.xml
-  def show
-    @status_update = StatusUpdate.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @status_update }
-    end
-  end
 
   # GET /status_updates/1/edit
   def edit

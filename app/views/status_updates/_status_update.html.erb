@@ -1,4 +1,5 @@
-    <td><%= status_update.original_text %></td>
+    <td><%= image_tag(status_update.pic_url) %></td>
+    <td><%= status_update.original_text %> <font size='-2'>(<%= status_update.twitter_date %>)</font></td>
     <td>
       <div id='translation_area_<%= status_update.id %>'>
         <%= render :partial => 'status_updates/view_translation', :locals => {:status_update => status_update} %>

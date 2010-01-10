@@ -1,9 +1,7 @@
-<p>
-  <%=h @rubyist.twitter_name %>
-</p>
-
 <table cellspacing=0 cellpadding=15>
-  <tr><td><b>Original tweet</b></td><td><b>Translation</b></td></tr>
+  <tr><td colspan=3>
+  <table width='100%'><tr><td align='left'><h2>follow matz</h2></td><td align='right'><h2><a href="/about">about</a></h2></td></tr></table>
+  </td></tr>
 <% @rubyist.status_updates.each_with_index do |update, index| %>
   <tr bgcolor="<%= (index % 2 == 0) ? '#FFFFFF' : '#FFFFDD' %>">
     <%= render :partial => 'status_updates/status_update', :locals => {:status_update => update} %>

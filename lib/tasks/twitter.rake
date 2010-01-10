@@ -11,7 +11,8 @@ namespace :twitter do
       Twitter::Search.new.from(rubyist.twitter_name).each do |tweet|
         unless existing_tweet_ids.include?(tweet.id)
           rubyist.status_updates << StatusUpdate.new(:twitter_id => tweet.id, :original_text => tweet.text, 
-            :translated_text => Translate.t(tweet.text, "JAPANESE", "ENGLISH"))
+            :translated_text => Translate.t(tweet.text, "JAPANESE", "ENGLISH"), :pic_url => tweet.profile_image_url,
+            :twitter_date => tweet.created_at)
           rubyist.save!
           puts "  Found new tweet: #{tweet.text}"
           puts "    #{rubyist.twitter_name} now has #{rubyist.status_updates.length} updates in the system."

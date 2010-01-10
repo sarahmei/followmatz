@@ -1,4 +1,4 @@
-<h1>Listing rubyists</h1>
+<h1>Rubyists we're tracking</h1>
 
 <table>
   <tr>
@@ -8,13 +8,8 @@
 <% @rubyists.each do |rubyist| %>
   <tr>
     <td><%=h rubyist.twitter_name %></td>
-    <td><%= link_to 'Show', rubyist %></td>
-    <td><%= link_to 'Edit', edit_rubyist_path(rubyist) %></td>
-    <td><%= link_to 'Destroy', rubyist, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New rubyist', new_rubyist_path %>
