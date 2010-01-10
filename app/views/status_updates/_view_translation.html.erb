@@ -1,0 +1,8 @@
+        <table width='100%'>
+          <tr><td><%= status_update.translated_text %></td></tr>
+          <tr>
+            <td align="right"><div id='edit_link' style='font-size:x-small'>
+              <a href="#" onclick="$('#translation_area_<%= status_update.id %>').load('<%= edit_status_update_path(status_update) %>')">Improve!</a>
+            </div></td>
+          </tr>
+        </table>

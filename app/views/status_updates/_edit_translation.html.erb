@@ -1,0 +1,29 @@
+<% form_for(@status_update) do |f| %>
+       <table width='100%'>
+           <tr>
+            <td>
+                <%= f.text_area :translated_text, :cols => 70, :rows => 3 %>
+            </td>
+          </tr>
+          <tr>
+            <td align="right"><div id='edit_link' style='font-size:x-small'>
+              <%= f.submit 'Save!' %>
+            </div></td>
+          </tr>
+        </table>
+<% end %>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#edit_status_update_<%= @status_update.id %>').submit(function() {
+      $.ajax({ 
+        data: $(this).serialize(),
+        type: $(this).attr('method'), 
+        url: $(this).attr('action'), 
+        success: function(response) { 
+            $('#translation_area_<%= @status_update.id %>').html(response);
+        }
+      });
+      return false; 
+    });
+  });
+</script>

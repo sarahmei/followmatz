@@ -1,0 +1,6 @@
+    <td><%= status_update.original_text %></td>
+    <td>
+      <div id='translation_area_<%= status_update.id %>'>
+        <%= render :partial => 'status_updates/view_translation', :locals => {:status_update => status_update} %>
+      </div>
+    </td>

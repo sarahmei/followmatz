@@ -9,10 +9,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100109042637) do
+ActiveRecord::Schema.define(:version => 20100109043057) do
 
   create_table "rubyists", :force => true do |t|
     t.string   "twitter_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "status_updates", :force => true do |t|
+    t.integer  "rubyist_id"
+    t.integer  "twitter_id"
+    t.text     "original_text"
+    t.text     "translated_text"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,8 +1,12 @@
 <p>
-  <b>Twitter name:</b>
   <%=h @rubyist.twitter_name %>
 </p>
 
-
-<%= link_to 'Edit', edit_rubyist_path(@rubyist) %> |
-<%= link_to 'Back', rubyists_path %>
+<table cellspacing=0 cellpadding=15>
+  <tr><td><b>Original tweet</b></td><td><b>Translation</b></td></tr>
+<% @rubyist.status_updates.each_with_index do |update, index| %>
+  <tr bgcolor="<%= (index % 2 == 0) ? '#FFFFFF' : '#FFFFDD' %>">
+    <%= render :partial => 'status_updates/status_update', :locals => {:status_update => update} %>
+  </tr>
+<% end %>
+</table>

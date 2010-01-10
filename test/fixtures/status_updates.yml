@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  rubyist_id: 1
+  twitter_id: 1
+  original_text: MyText
+  translated_text: MyText
+
+two:
+  rubyist_id: 1
+  twitter_id: 1
+  original_text: MyText
+  translated_text: MyText
