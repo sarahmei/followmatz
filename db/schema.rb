@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(:version => 20100110042446) do
 
   create_table "status_updates", :force => true do |t|
     t.integer  "rubyist_id"
-    t.integer  "twitter_id"
+    t.string   "twitter_id"
     t.text     "original_text"
     t.text     "translated_text"
     t.datetime "created_at"

@@ -1,6 +1,6 @@
 namespace :twitter do
   desc "Adds a twitter user to the system"
-  task :add_user => :environment do
+  task :add => :environment do
     twitter_user = ENV['name']
     if twitter_user.blank?
       puts "USAGE: rake twitter:add_user name=sarahmei"
@@ -19,7 +19,7 @@ namespace :twitter do
 
     Rubyist.all.each do |rubyist|
       puts "Getting updates for #{rubyist.twitter_name}..."
-      existing_tweet_ids = rubyist.status_updates.map {|u| u.twitter_id }
+      existing_tweet_ids = rubyist.status_updates.map {|u| u.twitter_id.to_i }
       Twitter::Search.new.from(rubyist.twitter_name).each do |tweet|
         unless existing_tweet_ids.include?(tweet.id)
           rubyist.status_updates << StatusUpdate.new(:twitter_id => tweet.id, :original_text => tweet.text, 
