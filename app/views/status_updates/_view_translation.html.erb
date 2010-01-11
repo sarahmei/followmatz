@@ -1,8 +1,26 @@
         <table width='100%'>
-          <tr><td><%= status_update.translated_text %></td></tr>
+          <tr><td colspan="2"><%= h status_update.translated_text %></td></tr>
           <tr>
+            <td align="left">
+              <div id="plus_icon_<%= status_update.id %>"><img src='/images/plus.jpg'></div>
+              <div id="minus_icon_<%= status_update.id %>" style="display:none"><img src='/images/minus.jpg'></div>
+            </td>
             <td align="right"><div id='edit_link' style='font-size:x-small'>
               <a href="#" onclick="$('#translation_area_<%= status_update.id %>').load('<%= edit_status_update_path(status_update) %>')">Improve!</a>
             </div></td>
           </tr>
         </table>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#plus_icon_<%= status_update.id %>').click(function() {
+      $('#translation_notes_<%= status_update.id %>').slideDown("slow");
+      $('#plus_icon_<%= status_update.id %>').toggle();
+      $('#minus_icon_<%= status_update.id %>').toggle();
+    });
+    $('#minus_icon_<%= status_update.id %>').click(function() {
+      $('#translation_notes_<%= status_update.id %>').slideUp("slow");
+      $('#plus_icon_<%= status_update.id %>').toggle();
+      $('#minus_icon_<%= status_update.id %>').toggle();
+    });
+  });
+</script>

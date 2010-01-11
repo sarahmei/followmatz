@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100110042446) do
+ActiveRecord::Schema.define(:version => 20100110223147) do
 
   create_table "rubyists", :force => true do |t|
     t.string   "twitter_name"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20100110042446) do
     t.datetime "updated_at"
     t.datetime "twitter_date"
     t.string   "pic_url"
+    t.text     "translation_notes"
   end
 
 end
