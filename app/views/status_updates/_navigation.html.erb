@@ -1,0 +1,51 @@
+<table width="100%">          
+  <tr>
+    <td align="left">
+      <div id="plus_icon_<%= status_update.id %>"><img src='/images/plus.jpg'></div>
+      <div id="minus_icon_<%= status_update.id %>" style="display:none"><img src='/images/minus.jpg'></div>
+    </td>
+    <td align="right">
+      <div id='edit_link_<%= status_update.id %>' style='font-size:x-small'>
+        <a href="#">Improve!</a>
+      </div>
+      <div id='save_link_<%= status_update.id %>' style='font-size:x-small;display:none'>
+        <a href="#">Save!</a>
+      </div>
+    </td>
+  </tr>
+</table>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#plus_icon_<%= status_update.id %>').click(function() {
+      $('#translation_notes_<%= status_update.id %>').slideDown("slow");
+      $('#plus_icon_<%= status_update.id %>').toggle();
+      $('#minus_icon_<%= status_update.id %>').toggle();
+    });
+    $('#minus_icon_<%= status_update.id %>').click(function() {
+      $('#translation_notes_<%= status_update.id %>').slideUp("slow");
+      $('#plus_icon_<%= status_update.id %>').toggle();
+      $('#minus_icon_<%= status_update.id %>').toggle();
+    });
+    $('#edit_link_<%= status_update.id %>').click(function() {
+      $('#translation_area_<%= status_update.id %>').load('<%= edit_status_update_path(status_update) %>')
+      $('#save_link_<%= status_update.id %>').toggle();
+      $('#edit_link_<%= status_update.id %>').toggle();
+    });
+    $('#save_link_<%= status_update.id %>').click(function() {
+      $('#edit_status_update_<%= status_update.id %>').submit(function() {
+        $.ajax({ 
+          data: $(this).serialize(),
+          type: $(this).attr('method'), 
+          url: $(this).attr('action'), 
+          success: function(response) { 
+              $('#translation_area_<%= status_update.id %>').html(response);
+          }
+        })
+        return false; 
+      });
+      $('#edit_status_update_<%= status_update.id %>').submit();
+      $('#save_link_<%= status_update.id %>').toggle();
+      $('#edit_link_<%= status_update.id %>').toggle();
+    });
+  });
+</script>
