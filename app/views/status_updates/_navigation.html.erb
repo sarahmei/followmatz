@@ -30,6 +30,7 @@
       $('#translation_area_<%= status_update.id %>').load('<%= edit_status_update_path(status_update) %>')
       $('#save_link_<%= status_update.id %>').toggle();
       $('#edit_link_<%= status_update.id %>').toggle();
+      return false;
     });
     $('#save_link_<%= status_update.id %>').click(function() {
       $('#edit_status_update_<%= status_update.id %>').submit(function() {
@@ -46,6 +47,7 @@
       $('#edit_status_update_<%= status_update.id %>').submit();
       $('#save_link_<%= status_update.id %>').toggle();
       $('#edit_link_<%= status_update.id %>').toggle();
+      return false;
     });
   });
 </script>

@@ -1,0 +1,3 @@
+<% form_for(@status_update, :url => update_notes_path(:id => @status_update.id), :html => {:id => "update_notes_#{@status_update.id}"}) do |f| %>
+  <%= f.text_area :translation_notes, :cols => 60, :rows => 3 %>
+<% end %>

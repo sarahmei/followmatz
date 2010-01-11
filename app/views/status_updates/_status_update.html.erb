@@ -2,16 +2,16 @@
     <td valign="top" width=500><%= h status_update.original_text %> <font size='-2'>(<%= status_update.twitter_date %>)</font></td>
     <td valign="top" width=500>
       <table width='100%'>
-        <tr><td>
+        <tr><td valign="top">
           <div id='translation_area_<%= status_update.id %>'>
             <%= render :partial => 'status_updates/view_translation', :locals => {:status_update => status_update} %>
           </div>
-        </td></tr><tr><td>
+        </td></tr><tr><td valign="top">
           <div id='translation_navigation_<%= status_update.id %>'>
             <%= render :partial => 'status_updates/navigation', :locals => {:status_update => status_update} %>
           </div>
-        </td></tr><tr><td>
-          <div id='translation_notes_<%= status_update.id %>' style="display:none">
+        </td></tr><tr><td valign="top">
+          <div id='translation_notes_<%= status_update.id %>' style="background-color:silver;padding-left:8px;padding-bottom:6px;padding-top:3px;padding-right:6px;display:none">
             <%= render :partial => 'status_updates/view_notes', :locals => {:status_update => status_update} %>
           </div>
         </td></tr>

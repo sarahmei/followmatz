@@ -6,6 +6,11 @@ class StatusUpdatesController < ApplicationController
     render :partial => 'edit_translation'
   end
 
+  def edit_notes
+    @status_update = StatusUpdate.find(params[:id])
+    render :partial => 'edit_notes'
+  end
+
   # PUT /status_updates/1
   # PUT /status_updates/1.xml
   def update
@@ -14,6 +19,14 @@ class StatusUpdatesController < ApplicationController
       flash[:notice] = 'Translation successfully updated.'
     end
     render :partial => 'view_translation', :locals => {:status_update => @status_update}
+  end
+
+  def update_notes
+    @status_update = StatusUpdate.find(params[:id])
+    if @status_update.update_attributes(params[:status_update])
+      flash[:notice] = 'Notes successfully updated.'
+    end
+    render :partial => 'view_notes', :locals => {:status_update => @status_update}
   end
 
 end

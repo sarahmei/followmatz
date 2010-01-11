@@ -1,2 +1,35 @@
-Notes: <%= h status_update.translation_notes %> Here's some placeholder text so we can see how this is going to look.
-Oh, here's some more! yay! cool! awesome! I love learning kanji!
+<table width="100%">
+  <tr><td>
+    <div id='notes_for_<%= status_update.id %>'>Notes: <%= h status_update.translation_notes %></div>
+  </td></tr><tr><td align="right">
+    <div id='notes_edit_link_<%= status_update.id %>' style='font-size:x-small'><a href="#">Improve!</a></div>
+    <div id='notes_save_link_<%= status_update.id %>' style='font-size:x-small;display:none'><a href="#">Save!</a></div>
+  </td></tr>
+</table>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#notes_edit_link_<%= status_update.id %>').click(function() {
+      $('#notes_for_<%= status_update.id %>').load('<%= edit_notes_path(:id => status_update.id) %>');
+      $('#notes_edit_link_<%= status_update.id %>').toggle();
+      $('#notes_save_link_<%= status_update.id %>').toggle();
+      return false;
+    });
+    $('#notes_save_link_<%= status_update.id %>').click(function() {
+      $('#update_notes_<%= status_update.id %>').submit(function() {
+        $.ajax({ 
+          data: $(this).serialize(),
+          type: $(this).attr('method'), 
+          url: $(this).attr('action'), 
+          success: function(response) { 
+              $('#translation_notes_<%= status_update.id %>').html(response);
+          }
+        })
+        return false; 
+      });
+      $('#update_notes_<%= status_update.id %>').submit();
+      $('#notes_edit_link_<%= status_update.id %>').toggle();
+      $('#notes_save_link_<%= status_update.id %>').toggle();
+      return false;
+    });
+  });
+</script>

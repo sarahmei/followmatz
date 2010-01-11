@@ -5,6 +5,9 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :status_updates, :only => [ :edit, :update ]
   map.resources :rubyists, :only => [:index, :show ]
 
+  map.edit_notes 'edit_notes', :controller => 'status_updates', :action => 'edit_notes'
+  map.update_notes 'update_notes', :controller => 'status_updates', :action => 'update_notes'
+
   map.root :controller => "rubyists", :action => "show", :id => 1
 
 end
