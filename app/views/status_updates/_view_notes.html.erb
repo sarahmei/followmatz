@@ -1,6 +1,9 @@
 <table width="100%">
   <tr><td>
-    <div id='notes_for_<%= status_update.id %>'>Notes: <%= h status_update.translation_notes %></div>
+    Notes: <br/>
+    <div id='notes_for_<%= status_update.id %>'>
+      <%= h(status_update.translation_notes).gsub(/$/, "<br />") %>
+    </div>
   </td></tr><tr><td align="right">
     <div id='notes_edit_link_<%= status_update.id %>' style='font-size:x-small'><a href="#">Improve!</a></div>
     <div id='notes_save_link_<%= status_update.id %>' style='font-size:x-small;display:none'><a href="#">Save!</a></div>

@@ -8,6 +8,8 @@ class StatusUpdatesController < ApplicationController
 
   def edit_notes
     @status_update = StatusUpdate.find(params[:id])
+    note_rows = @status_update.translation_notes.split(/$/).length rescue 0
+    @textarea_rows = [note_rows + 1, 3].max
     render :partial => 'edit_notes'
   end
 
