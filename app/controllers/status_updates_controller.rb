@@ -38,4 +38,11 @@ class StatusUpdatesController < ApplicationController
     render :partial => 'thumbs_up', :locals => {:status_update => @status_update, :enable_voting => false}
   end
 
+  def interesting
+    @status_updates = StatusUpdate.find(:all,
+      :include => :votes, :conditions => ['votes.vote = ?', true]).sort do |a,b|
+      b.votes.length <=> a.votes.length
+    end
+  end
+
 end
