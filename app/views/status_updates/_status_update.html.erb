@@ -1,6 +1,16 @@
-    <td valign="top"><%= image_tag(status_update.pic_url) %></td>
-    <td valign="top" width=500><%= h status_update.original_text %> <font size='-2'>(<%= status_update.twitter_date %>)</font></td>
-    <td valign="top" width=500>
+    <td valign="top" style="padding-top:15px">
+      <%= image_tag(status_update.pic_url) %>
+    </td>
+    <td valign="top" align="center">
+      <div id="thumbs_up_<%= status_update.id %>" style="padding-left:10px;padding-top:25px">
+        <%= render :partial => 'status_updates/thumbs_up', :locals => {:status_update => status_update, :enable_voting => true} %>
+      </div>
+      &nbsp;
+    </td>
+    <td valign="top" width=500 style="padding-top:15px;padding-left:15px">
+      <%= h status_update.original_text %> <font size='-2'>(<%= status_update.twitter_date %>)</font>
+    </td>
+    <td valign="top" width=500 style="padding-top:12px;padding-left:10px">
       <table width='100%'>
         <tr><td valign="top">
           <div id='translation_area_<%= status_update.id %>'>

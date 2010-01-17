@@ -31,4 +31,11 @@ class StatusUpdatesController < ApplicationController
     render :partial => 'view_notes', :locals => {:status_update => @status_update}
   end
 
+  def add_vote
+    @status_update = StatusUpdate.find(params[:id])
+    @status_update.votes.build(:vote => true)
+    @status_update.save
+    render :partial => 'thumbs_up', :locals => {:status_update => @status_update, :enable_voting => false}
+  end
+
 end

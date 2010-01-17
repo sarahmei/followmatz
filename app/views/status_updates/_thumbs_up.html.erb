@@ -1,0 +1,14 @@
+<% img_title = enable_voting ? "Is this tweet interesting?" :" You've already voted this up!" %>
+  <img id="thumbs_up_icon_<%= status_update.id %>" alt="<%= img_title %>" title="<%= img_title %>" src="/images/thumbs_up<%= "_disabled" unless enable_voting %>.gif">
+  <br />
+  <font size="-2">(<%= status_update.votes.length %>)</font>
+<% if enable_voting %>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#thumbs_up_icon_<%= status_update.id %>').click(function() {
+      $('#thumbs_up_<%= status_update.id %>').load('<%= add_vote_path(:id => status_update.id) %>')
+      return false;
+    });
+  });
+</script>
+<% end %>
