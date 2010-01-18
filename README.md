@@ -25,13 +25,17 @@ with English target.
     rake twitter:update from=SPANISH to=FRENCH
 
 Start the server, then check out http://localhost:3000:
-    ruby script/console
+    ruby script/server
 
 Dependencies
 ------------
 
-followmatz depends on the rtranslate gem, and the twitter gem. vote_fu and
-paper_trail are installed in the plugins directory.
+followmatz depends on the rtranslate and twitter gems.
+
+sudo gem install sishen-rtranslate
+sudo gem install twitter
+
+vote_fu and paper_trail are installed in the plugins directory.
 
 The app has been tested on Rails 2.3.4.
 
