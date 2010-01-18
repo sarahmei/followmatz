@@ -32,8 +32,8 @@ Dependencies
 
 followmatz depends on the rtranslate and twitter gems.
 
-sudo gem install sishen-rtranslate
-sudo gem install twitter
+    sudo gem install sishen-rtranslate
+    sudo gem install twitter
 
 vote_fu and paper_trail are installed in the plugins directory.
 
