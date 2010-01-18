@@ -18,7 +18,7 @@ Add a twitter user:
     rake twitter:add name=yukihiro_matz
 
 Get the user's updates:
-    rake twitter:update
+    rake twitter:update 
 
 You can specify the source and target languages. The default is Japanese source,
 with English target.
@@ -32,6 +32,8 @@ Dependencies
 
 followmatz depends on the rtranslate gem, and the twitter gem. vote_fu and
 paper_trail are installed in the plugins directory.
+
+The app has been tested on Rails 2.3.4.
 
 Authors
 -------
