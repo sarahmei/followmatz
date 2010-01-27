@@ -45,4 +45,8 @@ class StatusUpdatesController < ApplicationController
     end
   end
 
+  def ruby_related
+    @status_updates = StatusUpdate.find(:all, :conditions => "original_text like '%ruby%'", :order => "twitter_date DESC" )
+  end
+
 end

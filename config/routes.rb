@@ -9,6 +9,7 @@ ActionController::Routing::Routes.draw do |map|
   map.update_notes 'update_notes', :controller => 'status_updates', :action => 'update_notes'
   map.add_vote 'add_vote', :controller => 'status_updates', :action => 'add_vote'
   map.interesting 'interesting', :controller => 'status_updates', :action => 'interesting'
+  map.ruby_related 'ruby-related', :controller => 'status_updates', :action => 'ruby_related'
 
   map.root :controller => "rubyists", :action => "show", :id => 1
 
