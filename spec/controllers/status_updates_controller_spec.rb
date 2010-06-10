@@ -88,15 +88,15 @@ describe StatusUpdatesController do
       response.should be_success
     end
     it "should assign the @status_updates variable" do
-      assigns(:status_updates).should_not be_nil
+      assigns(:updates).should_not be_nil
     end
     it "should only return updates with votes" do
-      assigns(:status_updates).length.should == 3
+      assigns(:updates).length.should == 3
     end
     it "should order the updates by votes" do
-      assigns(:status_updates)[0].should == @first_update
-      assigns(:status_updates)[1].should == @second_update
-      assigns(:status_updates)[2].should == @third_update
+      assigns(:updates)[0].should == @first_update
+      assigns(:updates)[1].should == @second_update
+      assigns(:updates)[2].should == @third_update
     end
   end
 
@@ -111,14 +111,14 @@ describe StatusUpdatesController do
     it "should be successful" do
       response.should be_success
     end
-    it "should assign the @status_updates variable" do
-      assigns(:status_updates).should_not be_nil
+    it "should assign the @updates variable" do
+      assigns(:updates).should_not be_nil
     end
     it "should only return updates about ruby" do
-      assigns(:status_updates).length.should == 3
-      assigns(:status_updates).should include(@first_update)
-      assigns(:status_updates).should include(@second_update)
-      assigns(:status_updates).should include(@third_update)
+      assigns(:updates).length.should == 3
+      assigns(:updates).should include(@first_update)
+      assigns(:updates).should include(@second_update)
+      assigns(:updates).should include(@third_update)
     end
   end
 

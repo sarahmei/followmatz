@@ -36,14 +36,16 @@ class StatusUpdatesController < ApplicationController
   end
 
   def interesting
-    @status_updates = StatusUpdate.find(:all,
+    @updates = StatusUpdate.paginate(:all, :page => params[:page], :per_page => 10,
       :include => :votes, :conditions => ['votes.vote = ?', true]).sort do |a,b|
       b.votes.length <=> a.votes.length
     end
   end
 
   def ruby_related
-    @status_updates = StatusUpdate.find(:all, :conditions => "original_text like '%Ruby%'", :order => "twitter_date DESC" )
+    @updates = StatusUpdate.paginate(:all, :page => params[:page], :per_page => 10,
+                                            :conditions => "original_text like '%Ruby%'",
+                                            :order => "twitter_date DESC" )
   end
 
 end

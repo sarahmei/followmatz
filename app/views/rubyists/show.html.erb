@@ -1,18 +1,25 @@
 <table cellspacing=0 cellpadding=0>
-  <tr><td colspan=4>
-  <table width='100%'>
-    <tr>
-      <td align='left'><h2>follow&nbsp;matz:</h2></td>
-      <td align='left' style='padding-right:10px'><h2>all</h2></td>
-      <td align='left' style='padding-right:10px'><h2><a href="/ruby-related">ruby&nbsp;related</a></h2></td>
-      <td align='left' width="100%"><h2><a href="/interesting">interesting</a></h2></td>
-      <td align='right'><h2><a href="/about">about</a></h2></td>
-    </tr>
-  </table>
-  </td></tr>
-<% @rubyist.status_updates.each_with_index do |update, index| %>
+  <tr>
+    <td colspan=4>
+      <table width='100%'>
+        <tr>
+          <td align='left'><h2>follow&nbsp;matz:</h2></td>
+          <td align='left' style='padding-right:10px'><h2>all</h2></td>
+          <td align='left' style='padding-right:10px'><h2><a href="/ruby-related">ruby&nbsp;related</a></h2></td>
+          <td align='left' width="100%"><h2><a href="/interesting">interesting</a></h2></td>
+          <td align='right'><h2><a href="/about">about</a></h2></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+<%- @updates.each_with_index do |update, index| -%>
   <tr bgcolor="<%= (index % 2 == 0) ? '#FFFFFF' : '#FFFFDD' %>">
     <%= render :partial => 'status_updates/status_update', :locals => {:status_update => update} %>
   </tr>
-<% end %>
+<%- end -%>
+  <tr>
+    <td colspan="3">
+      <%= will_paginate @updates %>
+    </td>
+  </tr>
 </table>

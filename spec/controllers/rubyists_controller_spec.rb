@@ -23,9 +23,11 @@ describe RubyistsController do
     it "should be successful" do
       response.should be_success
     end
-    it "should assign the rubyist variable" do
+    it "should assign the @rubyist and @updates variables" do
       assigns(:rubyist).should_not be_nil
       assigns(:rubyist).should == @rubyist
+      assigns(:updates).should_not be_nil
+      assigns(:updates).should == @rubyist.status_updates
     end
   end
 end
