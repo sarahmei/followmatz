@@ -37,7 +37,7 @@ followmatz depends on the rtranslate and twitter gems.
 
 vote_fu and paper_trail are installed in the plugins directory.
 
-The app has been tested on Rails 2.3.4.
+The app has been tested on Rails 2.3.4 and 2.3.8.
 
 Authors
 -------
