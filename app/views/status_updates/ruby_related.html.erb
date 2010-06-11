@@ -1,15 +1,11 @@
 <table cellspacing=0 cellpadding=0>
   <tr>
     <td colspan=4>
-      <table width='100%'>
-        <tr>
-          <td align='left'><h2>follow&nbsp;matz:</h2></td>
-          <td align='left' style='padding-right:10px'><h2><a href="/">all</a></h2></td>
-          <td align='left' style='padding-right:10px'><h2>ruby&nbsp;related</h2></td>
-          <td align='left' width="100%"><h2><a href="/interesting">interesting</a></h2></td>
-          <td align='right'><h2><a href="/about">about</a></h2></td>
-        </tr>
-      </table>
+      <div class="header follow-matz"><h2>follow&nbsp;matz:</h2></div>
+      <div class="header all"><h2><%= link_to "all", root_path %></h2></div>
+      <div class="header ruby-related"><h2>ruby&nbsp;related</h2></div>
+      <div class="header interesting"><h2><%= link_to "interesting", interesting_path %></h2></div>
+      <div class="header about"><h2><%= link_to "about", "/about" %></h2></div>
     </td>
   </tr>
   <%- @updates.each_with_index do |update, index| -%>

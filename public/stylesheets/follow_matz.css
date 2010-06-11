@@ -52,3 +52,17 @@ a:hover { color: #fff; background-color:#000; }
   list-style: square;
 }
 
+div.header {
+  display: inline;
+  margin: 20px 10px 20px 0;
+  float: left;
+}
+
+div.header h2 {
+  display: inline;
+}
+
+div.header.about {
+  float: right;
+}
+
